@@ -1,111 +1,60 @@
-# CS201 - DSA Project  
-## Persistent Segment Tree
+```markdown
+# CS201- DSA Project: Persistent Segment Tree
 
-**Instructor:** Dr. Apurva Mudgal  
+**Instructor / Guide:** Dr. Apurva Mudgal  
 
-**Group Members:**  
-- Shourya Pastor (2024MCB1389)  
-- Jaskaran Kora (2024MCB1353)  
-- Aditya Singh (2024MCB1285)  
+### Team Members
+* Shourya Pastor - 2024MCB1389
+* Jaskaran Kora - 2024MCB1353
+* Aditya Singh - 2024MCB1285
 
 ---
 
-## ▶️ How to Run
+## How to run the files?
+Just clone or download the repository to your local device. Navigate to the `src` folder. 
+Because these are standard C++ programs, they can be compiled and run using the g++ compiler on any device.
 
-1. Clone or download the repository  
-2. Navigate to the `src` folder  
-3. Compile and run using g++
-
-Example:
+To run the Path Copying method:
 ```bash
 g++ src/path_copying.cpp -o path_copy
 ./path_copy
+```
 
+To run the Node Copying (Driscoll's) method:
+```bash
+g++ src/driscoll_node_copying.cpp -o driscoll
+./driscoll
+```
 
-⸻
+## What to input?
+Currently, the `main()` functions in both files contain hardcoded test cases to mathematically prove the persistence and memory-sharing mechanics. You do not need to provide manual input; just run the executables to see the state of the trees across different historical versions.
 
-📥 Input
+## What to expect as a result?
+The console will fetch and print the results of range sum queries across Version 0, Version 1, and Version 2 of the arrays, proving that historical states are preserved without altering the original data.
 
-No manual input is required.
-All test cases are hardcoded inside the main() functions to demonstrate persistence across multiple versions.
+---
 
-⸻
+## Introduction
+This repository contains the code for the implementation and mathematical analysis of **Persistent Segment Trees**. A data structure is considered persistent if multiple historical versions remain accessible after subsequent updates. The primary objective of this project is to implement and compare two methods for achieving full persistence: the Path-Copying Method and Driscoll's Node-Copying Method.
 
-📤 Output
+## Algorithms & Complexities
+The project implements two distinct structural approaches:
+* **Path Copying:** Duplicates nodes strictly along the root-to-leaf update path. Achieves $O(\log N)$ worst-case time and space complexity per update.
+* **Node Copying (Driscoll's Method):** Utilizes a "Fat Node" approach with bounded extra modification slots ($e$). Delays node duplication until overflow occurs, achieving superior $O(1)$ amortized space complexity per update.
 
-The program prints results of range sum queries across:
-	•	Version 0
-	•	Version 1
-	•	Version 2
+## Project Structure
+* `src/`: Contains the raw C++ implementations of both algorithms.
+* `docs/`: Contains our comprehensive LaTeX report, which includes rigorous formal proofs using the potential method of amortized analysis.
 
-This demonstrates that older versions remain unchanged after updates, confirming persistence.
+## Output
+Running the source code demonstrates the program's functionality, confirming that queries on older root versions return mathematically accurate historical data, and verifying via memory addresses that unmodified subtrees are correctly shared across versions.
 
-⸻
+## Conclusions
+The project successfully implements persistent segment trees from scratch. Through our formal analysis and C++ implementations, we concluded that while Path Copying offers consistent worst-case bounds, Driscoll's Node Copying method is vastly superior in memory-constrained environments due to its $O(1)$ amortized space overhead.
 
-📌 Introduction
+## Acknowledgements
+We would like to express our gratitude to our Course Instructor and Guide, Dr. Apurva Mudgal, for the guidance and support throughout this DSA course project. 
 
-A Persistent Segment Tree is a data structure where previous versions remain accessible even after updates.
-
-This project explores and implements two approaches to achieve persistence and compares their behavior.
-
-⸻
-
-⚙️ Methods Used
-
-1. Path Copying
-	•	Creates new nodes along the root-to-leaf path for every update
-	•	Shares unchanged subtrees with previous versions
-
-2. Driscoll’s Node Copying
-	•	Uses “fat nodes” with extra slots
-	•	Stores modifications inside nodes
-	•	Copies nodes only when slots overflow
-
-Detailed proofs and analysis are included in the LaTeX report.
-
-⸻
-
-🔧 Supported Operations
-	•	Build initial segment tree (Version 0)
-	•	Point Update → creates a new version (O(log N))
-	•	Range Query → works on any version (O(log N))
-	•	Node state retrieval (for node copying method)
-
-⸻
-
-📊 What This Demonstrates
-	•	Historical versions are preserved correctly
-	•	Memory is optimized through node sharing
-	•	Queries on old versions return correct results
-
-⸻
-
-📈 Comparison Summary
-
-Feature	Path Copying	Node Copying
-Update Time	O(log N)	O(log N) amortized
-Space per Update	O(log N)	O(1) amortized
-Query Time	O(log N)	O(log N)
-
-
-⸻
-
-🧾 Conclusion
-
-This project implements persistent segment trees from scratch and compares two approaches.
-	•	Path Copying is simpler and easier to implement
-	•	Node Copying is more space efficient in the long run
-
-⸻
-
-🙏 Acknowledgements
-
-We thank our course instructor Dr. Apurva Mudgal for guidance and support throughout the project.
-
-⸻
-
-📚 References
-	•	Driscoll, J. R. (1989)
-Making Data Structures Persistent
-Journal of Computer and System Sciences
-
+## References
+* Driscoll, J. R., Sarnak, N., Sleator, D. D., & Tarjan, R. E. (1989). *Making Data Structures Persistent*. Journal of Computer and System Sciences.
+```
