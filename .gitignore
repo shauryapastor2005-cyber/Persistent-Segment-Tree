@@ -1,0 +1,15 @@
+# C++ compiled files
+*.exe
+*.o
+*.out
+
+# Mac OS generated files (CRUCIAL FOR MAC USERS)
+.DS_Store
+
+# LaTeX compilation files
+*.aux
+*.log
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
